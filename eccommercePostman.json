@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "915307da-a4e4-4495-ac94-c25663140a8a",
+		"name": "Ecommerce API",
+		"description": "Collection for testing Ecommerce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25264353",
+		"_collection_link": "https://cloudy-escape-963508.postman.co/workspace/user-provisioning~78c067bf-21a0-4f69-a8af-e7f522e88ce4/collection/25264353-915307da-a4e4-4495-ac94-c25663140a8a?action=share&source=collection_link&creator=25264353"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"first_name\":\"cri\",\"last_name\":\"fiss\",\"email\":\"cri@fiss.com\",\"password\":\"securepassword\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8088/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"cri@fiss.com\",\"password\":\"securepassword\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8088/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{your_jwt_token}}",
+						"description": "Use the token received from login"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8088/users/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"users",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{your_jwt_token}}",
+						"description": "Use the token received from login"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8088/users/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"users",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product (Admin)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{your_jwt_token_admin}}",
+						"description": "Use the token received from login"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"New Product 6\",\"description\":\"This is a new product\",\"price\":29.99,\"quantity\":100}"
+				},
+				"url": {
+					"raw": "http://localhost:8088/admin/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"admin",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product (Admin)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{your_jwt_token_admin}}",
+						"description": "Use the token received from login"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"This is an updated description 3\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8088/admin/products/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"admin",
+						"products",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product (Admin)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{your_jwt_token_admin}}",
+						"description": "Use the token received from login"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8088/admin/products/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"admin",
+						"products",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "your_jwt_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJmaXJzdF9uYW1lIjoiSm9obiIsImxhc3RfbmFtZSI6IkRvZSIsImlkIjoiMSIsImV4cCI6MTc0NDc5OTAwNH0.lLFtzCuBY9ddkKpfqAxM0wQZ39iMIWnmtll41s744qg",
+			"type": "default"
+		},
+		{
+			"key": "your_jwt_token_admin",
+			"value": "eyJlbWFpbCI6ImNyaUBmaXNzLmNvbSIsImZpcnN0X25hbWUiOiJjcmkiLCJsYXN0X25hbWUiOiJmaXNzIiwiaWQiOiIiLCJleHAiOjE3NDQ4MDEzNTl9",
+			"type": "default"
+		}
+	]
+}
