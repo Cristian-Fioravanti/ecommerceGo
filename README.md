@@ -11,26 +11,11 @@ go run main.go
 ```
 
 ##  Project Structure
-├── main.go
-│   └── Starts the app, sets up router and DB connection.
-│
-├── controllers/
-│   └── API logic (login, users, products, etc.).
-│
-├── database/
-│   └── Connects to the DB, creates schema, runs auto-migrations.
-│
-├── middleware/
-│   └── Auth middleware (JWT protection).
-│
-├── models/
-│   └── DB models like User and Product (used by GORM).
-│
-├── routes/
-│   └── Defines all routes and links them to controllers.
-│
-├── tokens/
-│   └── Generates and validates JWT tokens.
-│
-├── go.mod / go.sum
-│   └── Go dependencies and module config.
+main.go               // starts the app
+controllers/          // handles the API logic (login, users, products)
+database/             // DB connection + creates DB/tables
+middleware/           // auth middleware (JWT)
+models/               // DB models (User, Product)
+routes/               // sets up all the routes
+tokens/               // JWT stuff (generate, validate)
+go.mod / go.sum       // dependencies
